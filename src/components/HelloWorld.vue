@@ -11,7 +11,7 @@ defineProps({
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
+      Check if you're on weight for your desired weight class or need to lose weight to compete.
       
     </h3>
   </div>
