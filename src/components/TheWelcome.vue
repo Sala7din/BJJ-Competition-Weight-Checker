@@ -1,4 +1,5 @@
 <script setup>
+// TODO: #1 Update icons with suitable icons by using a CDN
 import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import ToolingIcon from './icons/IconTooling.vue'
