@@ -14,7 +14,7 @@ import SupportIcon from './icons/IconSupport.vue'
     </template>
     <template #heading>Current Weight</template>
 
-    The first field in the form is labeled "Weight (in lbs/kg)." Click inside this field and type in your weight in pounds or kilograms .
+    Click inside this field and type in your weight in pounds or kilograms .
   </WelcomeItem>
 
   <WelcomeItem>
@@ -23,7 +23,7 @@ import SupportIcon from './icons/IconSupport.vue'
     </template>
     <template #heading>GI</template>
 
-    The next field is labeled "Gi." Click on the drop-down menu and select either "Yes" if you plan to wear a gi or "No" if you won't be wearing a gi. If you plan to wear a gi, you can also choose the brand of your gi from a separate drop-down menu.
+    Select either "Gi" or "No Gi" if you won't be wearing a Gi. If you plan to compete in a Gi Competition, choose the brand and size of your gi from the drop-down menu.
   </WelcomeItem>
 
   <WelcomeItem>
@@ -32,7 +32,7 @@ import SupportIcon from './icons/IconSupport.vue'
     </template>
     <template #heading>Belt</template>
 
-    The third field is labeled "Belt." Click on the drop-down menu and select the color and brand of your belt.
+   Click on the drop-down menu and select the brand and size of your belt.
   </WelcomeItem>
 
   <WelcomeItem>
