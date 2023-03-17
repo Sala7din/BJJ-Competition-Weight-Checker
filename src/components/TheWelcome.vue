@@ -22,7 +22,7 @@ import SupportIcon from './icons/IconSupport.vue'
     <template #icon>
       <ToolingIcon />
     </template>
-    <template #heading>GI</template>
+    <template #heading>Gi or No Gi</template>
 
     Select either "Gi" or "No Gi" if you won't be wearing a Gi. If you plan to compete in a Gi Competition, choose the brand and size of your gi from the drop-down menu.
   </WelcomeItem>
