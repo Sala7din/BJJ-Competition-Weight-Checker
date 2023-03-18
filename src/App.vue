@@ -6,7 +6,7 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <!-- TODO: #2 Update header with new logo --> 
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="@/assets/body_scale.png" width="190" height="190" />
     
     <div class="wrapper">
       <HelloWorld msg="BJJ Competition Weight Checker" />
