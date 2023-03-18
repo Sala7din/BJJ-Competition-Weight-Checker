@@ -4,8 +4,8 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/body_scale.png" width="190" height="190" />
+  <header> 
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     
     <div class="wrapper">
       <HelloWorld msg="BJJ Competition Weight Checker" />
