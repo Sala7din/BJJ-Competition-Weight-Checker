@@ -4,7 +4,7 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
+  <header> 
     <img alt="Vue logo" class="logo" src="@/assets/body_scale.png" width="190" height="190" />
     
     <div class="wrapper">
