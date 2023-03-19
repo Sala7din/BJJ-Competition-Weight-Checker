@@ -1,11 +1,10 @@
 <script setup>
-// TODO: #1 Update icons with suitable icons by using a CDN from Font Awesome
 import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
+import DocumentationIcon from './icons/IconCurrentWeight.vue'
+import ToolingIcon from './icons/IconGi.vue'
+import EcosystemIcon from './icons/IconBelt.vue'
+import CommunityIcon from './icons/IconCompetition.vue'
+import SupportIcon from './icons/IconWeightClass.vue'
 </script>
 
 <template>
