@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1 class="red">{{ msg }}</h1>
     <h3>
       Check if you're on weight for your desired weight class or need to lose weight to compete.
       
