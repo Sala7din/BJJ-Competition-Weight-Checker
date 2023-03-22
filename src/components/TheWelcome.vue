@@ -1,10 +1,10 @@
 <script setup>
 import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconCurrentWeight.vue'
-import ToolingIcon from './icons/IconGi.vue'
-import EcosystemIcon from './icons/IconBelt.vue'
-import CommunityIcon from './icons/IconCompetition.vue'
-import SupportIcon from './icons/IconWeightClass.vue'
+import DocumentationIcon from './icons/IconGender.vue'
+import ToolingIcon from './icons/IconWeightClass.vue'
+import EcosystemIcon from './icons/IconCurrentWeight.vue'
+import CommunityIcon from './icons/IconGi.vue'
+import SupportIcon from './icons/IconBelt.vue'
 </script>
 
 <template>
