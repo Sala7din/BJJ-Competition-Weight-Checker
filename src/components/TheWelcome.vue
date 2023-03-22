@@ -1,16 +1,18 @@
 <script setup>
 import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconGender.vue'
-import ToolingIcon from './icons/IconWeightClass.vue'
-import EcosystemIcon from './icons/IconCurrentWeight.vue'
-import CommunityIcon from './icons/IconGi.vue'
-import SupportIcon from './icons/IconBelt.vue'
+import GenderIcon from './icons/IconGender.vue'
+import WeightClassIcon from './icons/IconWeightClass.vue'
+import CurrentWeightIcon from './icons/IconCurrentWeight.vue'
+import GiIcon from './icons/IconGi.vue'
+import BeltIcon from './icons/IconBelt.vue'
 </script>
 
+
+<!-- TODO: Replace standard input elements with Vue input components to practice Vue Framework   -->
 <template>
   <WelcomeItem>
     <template #icon>
-      <DocumentationIcon />
+      <GenderIcon />
     </template>
     <template #heading>Gender</template>
 
@@ -24,7 +26,7 @@ import SupportIcon from './icons/IconBelt.vue'
 
   <WelcomeItem>
     <template #icon>
-      <ToolingIcon />
+      <WeightClassIcon />
     </template>
     <template #heading>IBJJF Gi Weight Class</template>
         <select id="weightClass">
@@ -44,7 +46,7 @@ import SupportIcon from './icons/IconBelt.vue'
 
   <WelcomeItem>
     <template #icon>
-      <EcosystemIcon />
+      <CurrentWeightIcon />
     </template>
     <template #heading>Current Body Weight</template>
     <input type="text" id="currentWeight" name="Current Weight" />
@@ -52,7 +54,7 @@ import SupportIcon from './icons/IconBelt.vue'
 
   <WelcomeItem>
     <template #icon>
-      <CommunityIcon />
+      <GiIcon />
     </template>
     <template #heading>GI Weight</template>
     <input type="text" id="giWeight" name="Gi Weight" />
@@ -60,7 +62,7 @@ import SupportIcon from './icons/IconBelt.vue'
 
   <WelcomeItem>
     <template #icon>
-      <SupportIcon />
+      <BeltIcon />
     </template>
     <template #heading>Belt Weight</template>
     <input type="text" id="beltWeight" name="Belt Weight" />
