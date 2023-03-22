@@ -6,6 +6,7 @@ import CurrentWeightIcon from './icons/IconCurrentWeight.vue'
 import GiIcon from './icons/IconGi.vue'
 import BeltIcon from './icons/IconBelt.vue'
 import RadioButton from './inputItems/radioButton.vue'
+import WeightInput from './inputItems/WeightInput.vue'
 </script>
 
 
@@ -45,7 +46,7 @@ import RadioButton from './inputItems/radioButton.vue'
       <CurrentWeightIcon />
     </template>
     <template #heading>Current Body Weight</template>
-    <input type="text" id="currentWeight" name="Current Weight" />
+    <WeightInput v-model="weight" />
   </WelcomeItem>
 
   <WelcomeItem>
@@ -53,7 +54,7 @@ import RadioButton from './inputItems/radioButton.vue'
       <GiIcon />
     </template>
     <template #heading>GI Weight</template>
-    <input type="text" id="giWeight" name="Gi Weight" />
+    <WeightInput v-model="weight" />
   </WelcomeItem>
 
   <WelcomeItem>
@@ -61,7 +62,7 @@ import RadioButton from './inputItems/radioButton.vue'
       <BeltIcon />
     </template>
     <template #heading>Belt Weight</template>
-    <input type="text" id="beltWeight" name="Belt Weight" />
+    <WeightInput v-model="weight" />
   </WelcomeItem>
 
   <input type="submit" >
