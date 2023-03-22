@@ -12,70 +12,58 @@ import SupportIcon from './icons/IconBelt.vue'
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Current Weight</template>
+    <template #heading>Gender</template>
 
-    <input type="radio" id="lb" value="Pound"  />
-	  <label for="gi">kg</label>
+    <input type="radio" id="gender" value="male"  />
+	  <label for="male">Male</label>
 
-	  <input type="radio" id="kg" value="Kilograms"/>
-	  <label for="no gi">lb</label>
-    <br>
-    <input type="text" placeholder="Type in your current weight">
+	  <input type="radio" id="gender" value="female"/>
+	  <label for="female">Female</label>
+    
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
       <ToolingIcon />
     </template>
-    <template #heading>Gi or No Gi</template>
-    
-    
-
-	  
-    
-    Select either "Gi" or "No Gi" if you won't be wearing a Gi. If you plan to compete in a Gi Competition, choose the brand and size of your gi from the drop-down menu.
-    <br>
-    
-    <input type="radio" id="gi" value="Gi"/>
-	  <label for="gi">Gi</label>
-
-	  <input type="radio" id="no gi" value="No Gi"/>
-	  <label for="no gi">No Gi</label>
-    <br>
-    <!-- TODO: #3 Dropdown menu should only appear if the "Gi" radio button is selected -->
-    <select></select> <select></select>
-    
-    
+    <template #heading>IBJJF Gi Weight Class</template>
+        <select id="weightClass">
+            <option value="" disabled selected>Choose your IBJJF Gi Weight Class</option>
+            <option value="1">Rooster – under 57.5 kg (under 127 lbs)</option>
+            <option value="2">Light feather – above 57.5 kg and under 64 kg (127 – 141.6 lbs)</option>
+            <option value="3">Feather – above 64kg and under 70 kg (141.6 – 154.6 lbs)</option>
+            <option value="4">Light – above 70kg and under 76 kg (154.6 – 168 lbs)</option>
+            <option value="1">Middle – above 76 kg and under 82.3 kg (168 – 181.6 lbs)</option>
+            <option value="2">Medium heavy – above 82.3 kg and under 88.3 kg (181.6 – 195 lbs)</option>
+            <option value="3">Heavy – above 88.3 kg and under 94.3 kg (195 – 208 lbs)</option>
+            <option value="4">Super heavy – above 94.3 kg and under 100.5 kg (208 – 222 lbs)</option>
+            <option value="4">Ultra heavy – above 100.5 kg, no upper limit (222 lbs and up)</option>
+        </select>
+    <!-- TODO: add drop-down for female weight classes and only render when female radio button is selected -->
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
       <EcosystemIcon />
     </template>
-    <template #heading>Belt</template>
-    Click on the drop-down menu and select the brand and size of your belt.
-    <br>
-    <select></select> <select></select>
+    <template #heading>Current Body Weight</template>
+    <input type="text" id="currentWeight" name="Current Weight" />
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
       <CommunityIcon />
     </template>
-    <template #heading>Competition</template>
-    Click on the drop-down menu and select the BJJ competition you plan to participate in.
-    <br>
-    <select></select>
+    <template #heading>GI Weight</template>
+    <input type="text" id="giWeight" name="Gi Weight" />
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
       <SupportIcon />
     </template>
-    <template #heading>Weight Class</template>
-    Click on the drop-down menu and select the weight class you plan to compete in. The weight classes are based on the current BJJ tournaments.
-    <br>
-    <select></select>
+    <template #heading>Belt Weight</template>
+    <input type="text" id="beltWeight" name="Belt Weight" />
   </WelcomeItem>
 
   <input type="submit" >
