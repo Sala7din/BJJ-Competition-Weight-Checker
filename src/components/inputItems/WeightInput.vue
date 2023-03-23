@@ -1,13 +1,18 @@
 <template>
   <div>
-    <label for="weight">Weight (kg):</label>
-    <input type="number" id="weight" v-model="value" @input="onInput">
+    <input type="number" id="weight" v-model="value" @input="onInput" :placeholder="placeholder"><label for="weight"> kg</label>
     <p v-if="invalidInput" style="color: red;">Please enter a valid weight in kilograms.</p>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    placeholder: {
+      type: String,
+      default: 'Enter weight in kilograms'
+    }
+  },
   data() {
     return {
       value: null,
@@ -21,7 +26,7 @@ export default {
         this.value = null;
       } else {
         this.invalidInput = false;
-        this.value = Number(this.value.toFixed(2));
+        this.value = Number(this.value.toFixed(3));
       }
     },
   },

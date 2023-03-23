@@ -47,7 +47,8 @@ import WeightInput from './inputItems/WeightInput.vue'
       <CurrentWeightIcon />
     </template>
     <template #heading>Current Body Weight</template>
-    <WeightInput v-model="weight" />
+    <WeightInput v-model="weight" :placeholder="'Enter your current weight'"/>
+
   </WelcomeItem>
 
   <WelcomeItem>
@@ -55,7 +56,8 @@ import WeightInput from './inputItems/WeightInput.vue'
       <GiIcon />
     </template>
     <template #heading>GI Weight</template>
-    <WeightInput v-model="weight" />
+    <WeightInput v-model="weight" :placeholder="'Enter Gi weight'"/>
+
   </WelcomeItem>
 
   <WelcomeItem>
@@ -63,7 +65,8 @@ import WeightInput from './inputItems/WeightInput.vue'
       <BeltIcon />
     </template>
     <template #heading>Belt Weight</template>
-    <WeightInput v-model="weight" />
+    <WeightInput v-model="weight" :placeholderText="'Enter Belt weight'"/>
+
   </WelcomeItem>
   <!-- TODO: Replace select element with component -->
   <button onclick="calculate()">Click to calculate</button>
