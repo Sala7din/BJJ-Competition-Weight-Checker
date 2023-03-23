@@ -5,8 +5,8 @@ import WeightClassIcon from './icons/IconWeightClass.vue'
 import CurrentWeightIcon from './icons/IconCurrentWeight.vue'
 import GiIcon from './icons/IconGi.vue'
 import BeltIcon from './icons/IconBelt.vue'
-import RadioButton from './inputItems/radioButton.vue'
 import WeightInput from './inputItems/WeightInput.vue'
+import GenderAndWeightClassSelector from './inputItems/GenderAndWeightClassSelector.vue'
 </script>
 
 
@@ -17,8 +17,7 @@ import WeightInput from './inputItems/WeightInput.vue'
       <GenderIcon />
     </template>
     <template #heading>Gender</template>
-      <radio-button />
-    
+    <gender-and-weight-class-selector></gender-and-weight-class-selector>
   </WelcomeItem>
 
   <WelcomeItem>
@@ -26,20 +25,6 @@ import WeightInput from './inputItems/WeightInput.vue'
       <WeightClassIcon />
     </template>
     <template #heading>IBJJF Gi Weight Class</template>
-    <!-- TODO: Replace select element with component -->
-        <select id="weightClass">
-            <option value="" disabled selected>Choose your IBJJF Gi Weight Class</option>
-            <option value="1">Rooster – under 57.5 kg (under 127 lbs)</option>
-            <option value="2">Light feather – above 57.5 kg and under 64 kg (127 – 141.6 lbs)</option>
-            <option value="3">Feather – above 64kg and under 70 kg (141.6 – 154.6 lbs)</option>
-            <option value="4">Light – above 70kg and under 76 kg (154.6 – 168 lbs)</option>
-            <option value="5">Middle – above 76 kg and under 82.3 kg (168 – 181.6 lbs)</option>
-            <option value="6">Medium heavy – above 82.3 kg and under 88.3 kg (181.6 – 195 lbs)</option>
-            <option value="7">Heavy – above 88.3 kg and under 94.3 kg (195 – 208 lbs)</option>
-            <option value="8">Super heavy – above 94.3 kg and under 100.5 kg (208 – 222 lbs)</option>
-            <option value="9">Ultra heavy – above 100.5 kg, no upper limit (222 lbs and up)</option>
-        </select>
-    <!-- TODO: add drop-down for female weight classes and only render when female radio button is selected -->
   </WelcomeItem>
 
   <WelcomeItem>
