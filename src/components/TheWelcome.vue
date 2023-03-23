@@ -10,7 +10,7 @@ import WeightInput from './inputItems/WeightInput.vue'
 </script>
 
 
-<!-- TODO: Replace standard input elements with Vue input components to practice Vue Framework   -->
+
 <template>
   <WelcomeItem>
     <template #icon>
@@ -26,6 +26,7 @@ import WeightInput from './inputItems/WeightInput.vue'
       <WeightClassIcon />
     </template>
     <template #heading>IBJJF Gi Weight Class</template>
+    <!-- TODO: Replace select element with component -->
         <select id="weightClass">
             <option value="" disabled selected>Choose your IBJJF Gi Weight Class</option>
             <option value="1">Rooster – under 57.5 kg (under 127 lbs)</option>
@@ -64,8 +65,8 @@ import WeightInput from './inputItems/WeightInput.vue'
     <template #heading>Belt Weight</template>
     <WeightInput v-model="weight" />
   </WelcomeItem>
-
-  <input type="submit" >
+  <!-- TODO: Replace select element with component -->
+  <button onclick="calculate()">Click to calculate</button>
 
 
 </template>
