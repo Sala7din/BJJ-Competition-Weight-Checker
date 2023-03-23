@@ -60,7 +60,7 @@ h3 {
     content: ' ';
     border-left: 1px solid white;
     position: absolute;
-    left: 0;
+    left: -1px;
     bottom: calc(50% + 25px);
     height: calc(50% - 25px);
   }
@@ -69,7 +69,7 @@ h3 {
     content: ' ';
     border-left: 1px solid white;
     position: absolute;
-    left: 0;
+    left: -1px;
     top: calc(50% + 25px);
     height: calc(50% - 25px);
   }
