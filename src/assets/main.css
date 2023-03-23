@@ -9,9 +9,9 @@
 }
 
 a,
-.red {
+.yellow {
   text-decoration: none;
-  color: rgb(255, 0, 0);
+  color: #FAAB19;
   transition: 0.4s;
 }
 

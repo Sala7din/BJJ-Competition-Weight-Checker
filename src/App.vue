@@ -8,7 +8,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <img alt="Vue logo" class="logo" src="@/assets/body_scale.png" width="190" height="190" />
     <div class="wrapper">
-      <HelloWorld msg="IBJJF Competition Weight Checker" />
+      <HelloWorld msg="IBJJF Competition Weight Checker (unofficial)" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
