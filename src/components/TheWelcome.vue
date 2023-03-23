@@ -1,30 +1,25 @@
 <script setup>
 import WelcomeItem from './WelcomeItem.vue'
-import GenderIcon from './icons/IconGender.vue'
 import WeightClassIcon from './icons/IconWeightClass.vue'
 import CurrentWeightIcon from './icons/IconCurrentWeight.vue'
 import GiIcon from './icons/IconGi.vue'
 import BeltIcon from './icons/IconBelt.vue'
-import WeightInput from './inputItems/WeightInput.vue'
-import GenderAndWeightClassSelector from './inputItems/GenderAndWeightClassSelector.vue'
+import CalculatorIcon from './icons/IconCalculator.vue'
+import WeightInput from './inputOut/WeightInput.vue'
+import GenderAndWeightClassSelector from './inputOut/GenderAndWeightClassSelector.vue'
+import CalculateButton from './inputOut/CalculateButton.vue'
 </script>
 
 
 
 <template>
-  <WelcomeItem>
-    <template #icon>
-      <GenderIcon />
-    </template>
-    <template #heading>Gender</template>
-    <gender-and-weight-class-selector></gender-and-weight-class-selector>
-  </WelcomeItem>
-
+  
   <WelcomeItem>
     <template #icon>
       <WeightClassIcon />
     </template>
     <template #heading>IBJJF Gi Weight Class</template>
+    <gender-and-weight-class-selector></gender-and-weight-class-selector>
   </WelcomeItem>
 
   <WelcomeItem>
@@ -50,11 +45,20 @@ import GenderAndWeightClassSelector from './inputItems/GenderAndWeightClassSelec
       <BeltIcon />
     </template>
     <template #heading>Belt Weight</template>
-    <WeightInput v-model="weight" :placeholderText="'Enter Belt weight'"/>
+    <WeightInput v-model="weight" :placeholder="'Enter Belt weight'"/>
 
   </WelcomeItem>
-  <!-- TODO: Replace select element with component -->
-  <button onclick="calculate()">Click to calculate</button>
+  
+  <WelcomeItem>
+    <template #icon>
+      <CalculatorIcon />
+    </template>
+    <div>
+    <CalculateButton buttonText="Calculate" @clicked="handleButtonClicked" />
+  </div>
+  </WelcomeItem>
+  
+  
 
 
 </template>
