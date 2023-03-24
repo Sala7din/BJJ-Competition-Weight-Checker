@@ -5,9 +5,11 @@ import CurrentWeightIcon from './icons/IconCurrentWeight.vue'
 import GiIcon from './icons/IconGi.vue'
 import BeltIcon from './icons/IconBelt.vue'
 import CalculatorIcon from './icons/IconCalculator.vue'
-import WeightInput from './inputOut/WeightInput.vue'
 import GenderAndWeightClassSelector from './inputOut/GenderAndWeightClassSelector.vue'
-import CalculateButton from './inputOut/CalculateButton.vue'
+import BodyWeightInput from './inputOut/BodyWeightInput.vue'
+import GiWeightInput from './inputOut/GiWeightInput.vue'
+import BeltWeightInput from './inputOut/BeltWeightInput.vue'
+import CalcButton from './inputOut/CalcButton.vue'
 </script>
 
 
@@ -19,7 +21,7 @@ import CalculateButton from './inputOut/CalculateButton.vue'
       <WeightClassIcon />
     </template>
     <template #heading>IBJJF Gi Weight Class</template>
-    <gender-and-weight-class-selector></gender-and-weight-class-selector>
+    <GenderAndWeightClassSelector v-model="selectedWeightClass"></GenderAndWeightClassSelector>
   </WelcomeItem>
 
   <WelcomeItem>
@@ -27,7 +29,7 @@ import CalculateButton from './inputOut/CalculateButton.vue'
       <CurrentWeightIcon />
     </template>
     <template #heading>Current Body Weight</template>
-    <WeightInput v-model="weight" :placeholder="'Enter your current weight'"/>
+    <BodyWeightInput v-model="bodyWeight" :placeholder="'Enter your current weight'"/>
 
   </WelcomeItem>
 
@@ -36,7 +38,7 @@ import CalculateButton from './inputOut/CalculateButton.vue'
       <GiIcon />
     </template>
     <template #heading>GI Weight</template>
-    <WeightInput v-model="weight" :placeholder="'Enter Gi weight'"/>
+    <GiWeightInput v-model="giWeight" :placeholder="'Enter Gi weight'"/>
 
   </WelcomeItem>
 
@@ -45,7 +47,7 @@ import CalculateButton from './inputOut/CalculateButton.vue'
       <BeltIcon />
     </template>
     <template #heading>Belt Weight</template>
-    <WeightInput v-model="weight" :placeholder="'Enter Belt weight'"/>
+    <BeltWeightInput v-model="beltWeight" :placeholder="'Enter Belt weight'"/>
 
   </WelcomeItem>
   
@@ -53,9 +55,8 @@ import CalculateButton from './inputOut/CalculateButton.vue'
     <template #icon>
       <CalculatorIcon />
     </template>
-    <div>
-    <CalculateButton buttonText="Calculate" @clicked="handleButtonClicked" />
-  </div>
+    <template #heading>Calculate</template>
+    <CalcButton buttonText="Calculate" @clicked="handleButtonClicked" />
   </WelcomeItem>
   
   
