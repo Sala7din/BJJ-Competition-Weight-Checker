@@ -111,7 +111,7 @@ export default {
 
     },
     computed: {
-      <!--TODO: seperate weight classes further into kg & lbs-->
+      // TODO: seperate weight classes further into kg & lbs
     weightClasses() {
       if (this.selectedGender === 'male') {
         return [
@@ -141,7 +141,7 @@ export default {
       }
     }
   },
-   <!-- TODO: Fix input validation. Shows me "You are above the weight limit and need to lose NaN kg" when I ONLY select the weight class and calculate--> 
+   // FIXME: input validation. Shows me "You are above the weight limit and need to lose NaN kg" when I ONLY select the weight class and calculate
 
   methods: {
   checkWeight() {
@@ -153,14 +153,14 @@ export default {
     const totalWeight = this.bodyWeight + this.giWeight + this.beltWeight;
     if (totalWeight <= this.selectedWeightClass) {
       const difference = this.selectedWeightClass - totalWeight;
-      <!-- TODO: Update font colors(green&red) for result phrases   -->
+      // TODO: Update font colors(green&red) for result phrases   
       this.result = `You are within the weight limit and have ${difference} kg tolerance`;
     } else {
       const difference = totalWeight - this.selectedWeightClass;
       this.result = `You are above the weight limit and need to lose ${difference} kg`;
     }
   },
-  <!--TODO: Only allow 3 decimals and add comma as a decimal separator -->
+  // FIXME: Only allow 3 decimals and add comma as a decimal separator 
   onInput() {
     if (isNaN(this.value) || this.value <= 0) {
       this.invalidInput = true;
