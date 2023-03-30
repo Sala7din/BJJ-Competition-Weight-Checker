@@ -136,26 +136,34 @@ export default {
       }
     }
   },
-    methods: {
-      checkWeight() {
-        const totalWeight = this.bodyWeight + this.giWeight + this.beltWeight;
-        if (totalWeight <= this.selectedWeightClass) {
-          const difference = this.selectedWeightClass - totalWeight
-          this.result = `You are within the weight limit and have ${difference} kg tolerance`;
-        } else {
-          const difference = totalWeight - this.selectedWeightClass
-          this.result = `You are above the weight limit and need to loose ${difference} kg`;
-        }
-      },
-      onInput() {
-      if (isNaN(this.value) || this.value <= 0) {
-        this.invalidInput = true;
-        this.value = null;
-      } else {
-        this.invalidInput = false;
-        this.value = parseFloat(this.value.toFixed(3));
-      }
+    
+  methods: {
+  checkWeight() {
+    if (!this.bodyWeight || !this.giWeight || !this.beltWeight || !this.selectedWeightClass) {
+      this.result = "Please enter all values.";
+      return;
     }
+
+    const totalWeight = this.bodyWeight + this.giWeight + this.beltWeight;
+    if (totalWeight <= this.selectedWeightClass) {
+      const difference = this.selectedWeightClass - totalWeight;
+      this.result = `You are within the weight limit and have ${difference} kg tolerance`;
+    } else {
+      const difference = totalWeight - this.selectedWeightClass;
+      this.result = `You are above the weight limit and need to lose ${difference} kg`;
     }
-  }
+  },
+
+  onInput() {
+    if (isNaN(this.value) || this.value <= 0) {
+      this.invalidInput = true;
+      this.value = null;
+    } else {
+      this.invalidInput = false;
+      this.value = parseFloat(this.value.toFixed(3));
+    }
+  },
+},
+
+}
 </script>
