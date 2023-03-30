@@ -4,13 +4,17 @@
       <WeightClassIcon />
     </template>
     <template #heading>IBJJF Gi Weight Class</template>
+    <!--TODO: Add radio button that lets you choose between kg & lbs -->
     <div>
+    <!--TODO: let radio buttons only appear after weight is selected-->
     <input type="radio" id="male" value="male" v-model="selectedGender">
     <label for="male">Male</label>
     <input type="radio" id="female" value="female" v-model="selectedGender">
     <label for="female">Female</label>
     <br>
+    <!--TODO: seperate weight classes further into kg & lbs-->
     <select v-if="selectedGender === 'male' || selectedGender === 'female'" v-model="selectedWeightClass">
+      <!--TODO: Add funny phrase that is shown to user if "Super heavy" is selected-->
       <option value="" disabled selected>Choose your Weight Class</option>
       <option v-for="weightClass in weightClasses" :key="weightClass.value" :value="weightClass.value">{{ weightClass.name }}</option>
     </select>
@@ -107,6 +111,7 @@ export default {
 
     },
     computed: {
+      <!--TODO: seperate weight classes further into kg & lbs-->
     weightClasses() {
       if (this.selectedGender === 'male') {
         return [
@@ -136,7 +141,8 @@ export default {
       }
     }
   },
-    
+   <!-- TODO: Fix input validation. Shows me "You are above the weight limit and need to lose NaN kg" when I ONLY select the weight class and calculate--> 
+
   methods: {
   checkWeight() {
     if (!this.bodyWeight || !this.giWeight || !this.beltWeight || !this.selectedWeightClass) {
@@ -147,13 +153,14 @@ export default {
     const totalWeight = this.bodyWeight + this.giWeight + this.beltWeight;
     if (totalWeight <= this.selectedWeightClass) {
       const difference = this.selectedWeightClass - totalWeight;
+      <!-- TODO: Update font colors(green&red) for result phrases   -->
       this.result = `You are within the weight limit and have ${difference} kg tolerance`;
     } else {
       const difference = totalWeight - this.selectedWeightClass;
       this.result = `You are above the weight limit and need to lose ${difference} kg`;
     }
   },
-
+  <!--TODO: Only allow 3 decimals and add comma as a decimal separator -->
   onInput() {
     if (isNaN(this.value) || this.value <= 0) {
       this.invalidInput = true;
