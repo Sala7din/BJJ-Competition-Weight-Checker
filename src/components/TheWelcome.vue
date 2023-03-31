@@ -110,7 +110,6 @@ export default {
       },
       selectedWeight: null,
       selectedGender: null,
-      selectedWeightClass: null,
       value: null,
       invalidInput: false,
       result: '',
@@ -129,49 +128,49 @@ export default {
     weightClasses() {
       if (this.selectedGender === 'male' || this.selectedWeight === 'kg') {
         return [
-          { name: 'Rooster (57.5kg/126.5)', value: 57.5 },
-          { name: 'Light Feather (64kg/141lbs)', value: 64 },
-          { name: 'Feather (70kg/154lbs)', value: 70 },
-          { name: 'Light (76kg/167lbs)', value: 76 },
-          { name: 'Middle (82.3kg/181lbs)', value: 82.3 },
-          { name: 'Medium Heavy (88.3kg/195lbs)', value: 88.3 },
-          { name: 'Heavy (94.3kg/208lbs)', value: 94.3 },
-          { name: 'Super Heavy (97.5kg/215lbs)', value: 97.5 },
-          { name: 'Ultra Heavy (No maximum)', value: null }
-        ]
-      } else if (this.selectedGender === 'female' || this.selectedWeight === 'kg') {
-        return [
-          { name: 'Rooster (47.5kg/107)', value: 47.5 },
-          { name: 'Light Feather (52.2kg/115lbs)', value: 52.2 },
-          { name: 'Feather (57kg/125.5lbs)', value: 57 },
-          { name: 'Light (62.8kg/138.5lbs)', value: 62.8 },
-          { name: 'Middle (69.1kg/152lbs)', value: 69.1 },
-          { name: 'Medium Heavy (76.1kg/167.5lbs)', value: 76.1 },
-          { name: 'Heavy (82.3kg/181.5lbs)', value: 82.3 },
-          { name: 'Super Heavy (No maximum)', value: null }
+          { name: 'Rooster (57.5kg)', value: 57.5 },
+          { name: 'Light Feather (64kg)', value: 64 },
+          { name: 'Feather (70kg)', value: 70 },
+          { name: 'Light (76kg)', value: 76 },
+          { name: 'Middle (82.3kg)', value: 82.3 },
+          { name: 'Medium Heavy (88.3kg)', value: 88.3 },
+          { name: 'Heavy (94.3kg)', value: 94.3 },
+          { name: 'Super Heavy (97.5kg)', value: 97.5 },
+          { name: 'Ultra Heavy (No maximum)', value: 9999 }
         ]
       } else if (this.selectedGender === 'male' || this.selectedWeight === 'lbs') {
-        return [
-          { name: 'Rooster (57.5/126.5lbs)', value: 57.5 },
-          { name: 'Light Feather (64kg/141lbs)', value: 64 },
-          { name: 'Feather (70kg/154lbs)', value: 70 },
-          { name: 'Light (76kg/167lbs)', value: 76 },
-          { name: 'Middle (82.3kg/181lbs)', value: 82.3 },
-          { name: 'Medium Heavy (88.3kg/195lbs)', value: 88.3 },
-          { name: 'Heavy (94.3kg/208lbs)', value: 94.3 },
-          { name: 'Super Heavy (97.5kg/215lbs)', value: 97.5 },
-          { name: 'Ultra Heavy (No maximum)', value: null }
+          return [
+          { name: 'Rooster (126.5 lbs)', value: 126.5 },
+          { name: 'Light Feather (141 lbs)', value: 141 },
+          { name: 'Feather (154 lbs)', value: 154 },
+          { name: 'Light (167 lbs)', value: 167 },
+          { name: 'Middle (181 lbs)', value: 181 },
+          { name: 'Medium Heavy (195 lbs)', value: 195 },
+          { name: 'Heavy (208 lbs)', value: 208 },
+          { name: 'Super Heavy (221 lbs)', value: 221 },
+          { name: 'Ultra Heavy (Over 221 lbs)', value: 9999 }
+      ]
+      } if (this.selectedGender === 'female' || this.selectedWeight === 'kg') {
+          return [
+          { name: 'Rooster (47.5kg)', value: 47.5 },
+          { name: 'Light Feather (52.2kg)', value: 52.2 },
+          { name: 'Feather (57kg)', value: 57 },
+          { name: 'Light (62.8kg)', value: 62.8 },
+          { name: 'Middle (69.1kg)', value: 69.1 },
+          { name: 'Medium Heavy (76.1kg)', value: 76.1 },
+          { name: 'Heavy (82.3kg)', value: 82.3 },
+          { name: 'Super Heavy (No maximum)', value: 9999 }
         ]
       } else if (this.selectedGender === 'female' || this.selectedWeight === 'lbs') {
-        return [
-          { name: 'Rooster (47.5/107lbs)', value: 47.5 },
-          { name: 'Light Feather (52.2kg/115lbs)', value: 52.2 },
-          { name: 'Feather (57kg/125.5lbs)', value: 57 },
-          { name: 'Light (62.8kg/138.5lbs)', value: 62.8 },
-          { name: 'Middle (69.1kg/152lbs)', value: 69.1 },
-          { name: 'Medium Heavy (76.1kg/167.5lbs)', value: 76.1 },
-          { name: 'Heavy (82.3kg/181.5lbs)', value: 82.3 },
-          { name: 'Super Heavy (No maximum)', value: null }
+          return [
+          { name: 'Rooster (107lbs)', value: 107 },
+          { name: 'Light Feather (115lbs)', value: 115 },
+          { name: 'Feather (125.5lbs)', value: 125.5 },
+          { name: 'Light (138.5lbs)', value: 138.5 },
+          { name: 'Middle (152lbs)', value: 152 },
+          { name: 'Medium Heavy (167.5lbs)', value: 167.5 },
+          { name: 'Heavy (181.5lbs)', value: 181.5 },
+          { name: 'Super Heavy (No maximum)', value: 9999 }
         ]
       }
     }
