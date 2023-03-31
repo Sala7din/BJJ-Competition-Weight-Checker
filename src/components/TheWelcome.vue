@@ -115,8 +115,15 @@ export default {
       invalidInput: false,
       result: '',
     }
-
     },
+    watch: {
+    selectedWeight(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.selectedGender = null;
+        this.selectedWeightClass = null;
+          }
+        },
+    	},
     computed: {
       // TODO: seperate weight classes further into kg & lbs
     weightClasses() {
@@ -143,9 +150,7 @@ export default {
           { name: 'Heavy (82.3kg/181.5lbs)', value: 82.3 },
           { name: 'Super Heavy (No maximum)', value: null }
         ]
-      } 
-      
-      if (this.selectedGender === 'male' || this.selectedWeight === 'lbs') {
+      } else if (this.selectedGender === 'male' || this.selectedWeight === 'lbs') {
         return [
           { name: 'Rooster (57.5/126.5lbs)', value: 57.5 },
           { name: 'Light Feather (64kg/141lbs)', value: 64 },
