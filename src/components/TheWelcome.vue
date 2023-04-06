@@ -113,7 +113,7 @@ export default {
     }
     },
     watch: {
-    selectedWeight(newValue, oldValue) {
+    selectedWeightUnit(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.selectedGender = null;
         this.selectedWeightClass = null;
@@ -121,55 +121,57 @@ export default {
         },
     	},
     computed: {
-    weightClasses() {
-      if (this.selectedGender === 'male' || this.selectedWeightUnit === 'kg') {
-        return [
-          { name: 'Rooster (57.5kg)', value: 57.5 },
-          { name: 'Light Feather (64kg)', value: 64 },
-          { name: 'Feather (70kg)', value: 70 },
-          { name: 'Light (76kg)', value: 76 },
-          { name: 'Middle (82.3kg)', value: 82.3 },
-          { name: 'Medium Heavy (88.3kg)', value: 88.3 },
-          { name: 'Heavy (94.3kg)', value: 94.3 },
-          { name: 'Super Heavy (97.5kg)', value: 97.5 },
-          { name: 'Ultra Heavy (No maximum)', value: 9999 }
-        ]
-      } else if (this.selectedGender === 'female' || this.selectedWeightUnit === 'kg') {
-          return [
-          { name: 'Rooster (47.5kg)', value: 47.5 },
-          { name: 'Light Feather (52.2kg)', value: 52.2 },
-          { name: 'Feather (57kg)', value: 57 },
-          { name: 'Light (62.8kg)', value: 62.8 },
-          { name: 'Middle (69.1kg)', value: 69.1 },
-          { name: 'Medium Heavy (76.1kg)', value: 76.1 },
-          { name: 'Heavy (82.3kg)', value: 82.3 },
-          { name: 'Super Heavy (No maximum)', value: 9999 }
-        ]
-      } else if (this.selectedGender === 'male' || this.selectedWeightUnit === 'lbs') {
-          return [
-          { name: 'Rooster (126.5 lbs)', value: 126.5 },
-          { name: 'Light Feather (141 lbs)', value: 141 },
-          { name: 'Feather (154 lbs)', value: 154 },
-          { name: 'Light (167 lbs)', value: 167 },
-          { name: 'Middle (181 lbs)', value: 181 },
-          { name: 'Medium Heavy (195 lbs)', value: 195 },
-          { name: 'Heavy (208 lbs)', value: 208 },
-          { name: 'Super Heavy (221 lbs)', value: 221 },
-          { name: 'Ultra Heavy (No maximum)', value: 9999 }
-      ]
-      } else if (this.selectedGender === 'female' || this.selectedWeightUnit === 'lbs') {
-          return [
-          { name: 'Rooster (107lbs)', value: 107 },
-          { name: 'Light Feather (115lbs)', value: 115 },
-          { name: 'Feather (125.5lbs)', value: 125.5 },
-          { name: 'Light (138.5lbs)', value: 138.5 },
-          { name: 'Middle (152lbs)', value: 152 },
-          { name: 'Medium Heavy (167.5lbs)', value: 167.5 },
-          { name: 'Heavy (181.5lbs)', value: 181.5 },
-          { name: 'Super Heavy (No maximum)', value: 9999 }
-        ]
-      }
+      weightClasses() {
+        if (this.selectedGender !== null && this.selectedWeightUnit !== null) {
+          if (this.selectedGender === 'male' && this.selectedWeightUnit === 'kg') {
+            return [
+              { name: 'Rooster (57.5kg)', value: 57.5 },
+              { name: 'Light Feather (64kg)', value: 64 },
+              { name: 'Feather (70kg)', value: 70 },
+              { name: 'Light (76kg)', value: 76 },
+              { name: 'Middle (82.3kg)', value: 82.3 },
+              { name: 'Medium Heavy (88.3kg)', value: 88.3 },
+              { name: 'Heavy (94.3kg)', value: 94.3 },
+              { name: 'Super Heavy (100.5kg)', value: 100.5 },
+              { name: 'Ultra Heavy (No maximum)', value: -1 },
+            ];
+          } else if (this.selectedGender === 'male' && this.selectedWeightUnit === 'lbs') {
+            return [
+              { name: 'Rooster (127lbs)', value: 127 },
+              { name: 'Light Feather (141lbs)', value: 141 },
+              { name: 'Feather (154lbs)', value: 154 },
+              { name: 'Light (168lbs)', value: 168 },
+              { name: 'Middle (181lbs)', value: 181 },
+              { name: 'Medium Heavy (194.5lbs)', value: 194.5 },
+              { name: 'Heavy (208lbs)', value: 208 },
+              { name: 'Super Heavy (221lbs)', value: 221 },
+              { name: 'Ultra Heavy (No maximum)', value: -1 },
+            ];
+          } else if (this.selectedGender === 'female' && this.selectedWeightUnit === 'kg') {
+            return [
+              { name: 'Rooster (48.5kg)', value: 48.5 },
+              { name: 'Light Feather (53.5kg)', value: 53.5 },
+              { name: 'Feather (58.5kg)', value: 58.5 },
+              { name: 'Light (64kg)', value: 64 },
+              { name: 'Middle (69kg)', value: 69 },
+              { name: 'Medium Heavy (74kg)', value: 74 },
+              { name: 'Heavy (79kg)', value: 79 },
+              { name: 'Super Heavy (No maximum)', value: -1 },
+            ];
+          } else if (this.selectedGender === 'female' || this.selectedWeightUnit === 'lbs') {
+              return [
+              { name: 'Rooster (107lbs)', value: 107 },
+              { name: 'Light Feather (115lbs)', value: 115 },
+              { name: 'Feather (125.5lbs)', value: 125.5 },
+              { name: 'Light (138.5lbs)', value: 138.5 },
+              { name: 'Middle (152lbs)', value: 152 },
+              { name: 'Medium Heavy (167.5lbs)', value: 167.5 },
+              { name: 'Heavy (181.5lbs)', value: 181.5 },
+              { name: 'Super Heavy (No maximum)', value: 9999 }
+            ];
+          }
     }
+  }
   },
    // FIXME: input validation. Shows me "You are above the weight limit and need to lose NaN kg" when I ONLY select the weight class and calculate
 
