@@ -185,7 +185,7 @@ export default {
     const totalWeight = this.bodyWeight + this.giWeight + this.beltWeight;
     if (totalWeight <= this.selectedWeightClass) {
       const difference = this.selectedWeightClass - totalWeight;  
-      this.result = `<span style='color:green'>You are within the weight limit and have ${difference} kg.</span>`;
+      this.result = `<span style='color:green'>You are under the weight limit by ${difference} kg.</span>`;
     } else {
       const difference = totalWeight - this.selectedWeightClass;
       this.result = `<span style='color:red'>You are above the weight limit and need to lose ${difference} kg.</span>`;
