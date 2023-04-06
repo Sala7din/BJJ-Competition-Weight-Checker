@@ -27,14 +27,14 @@
       </p>
     </div>
   </WelcomeItem>
-
+  <!--TODO: Change label according to the chosen unit -->
   <WelcomeItem>
     <template #icon>
       <CurrentWeightIcon />
     </template>
     <template #heading>Current Body Weight</template>
     <div>
-      <input type="number" id="bodyWeight" v-model="bodyWeight" @input="onInput" placeholder="Enter your Body Weight"><label for="bodyWeight"> kg</label>
+      <input type="number" id="bodyWeight" v-model.number="bodyWeight" @input="onInput" placeholder="Enter your Body Weight" min="0"><label for="bodyWeight"> kg</label>
       <p v-if="invalidInput" style="color: red;">Please enter a valid weight in kilograms.</p>
   </div>
   </WelcomeItem>
@@ -45,7 +45,7 @@
     </template>
     <template #heading>GI Weight</template>
     <div>
-      <input type="number" id="giWeight" v-model="giWeight" @input="onInput" placeholder="Enter Gi Weight"><label for="giWeight"> kg</label>
+      <input type="number" id="giWeight" v-model.number="giWeight" @input="onInput" placeholder="Enter Gi Weight"><label for="giWeight" min="0"> kg</label>
       <p v-if="invalidInput" style="color: red;">Please enter a valid weight in kilograms.</p>
   </div>
   </WelcomeItem>
@@ -56,7 +56,7 @@
     </template>
     <template #heading>Belt Weight</template>
     <div>
-      <input type="number" id="beltWeight" v-model="beltWeight" @input="onInput" placeholder="Enter Belt Weight"><label for="beltWeight"> kg</label>
+      <input type="number" id="beltWeight" v-model.number="beltWeight" @input="onInput" placeholder="Enter Belt Weight" min="0"><label for="beltWeight"> kg</label>
       <p v-if="invalidInput" style="color: red;">Please enter a valid weight in kilograms.</p>
     </div>
   </WelcomeItem>
@@ -189,18 +189,12 @@ export default {
       this.result = `<span style='color:red'>You are above the weight limit and need to lose ${difference} kg.</span>`;
     }
   },
-  // FIXME: Only allow 3 decimals after comma and add comma as a decimal separator 
   onInput() {
-    const regex = /^\d{0,}(\.\d{0,3})?$/; // regular expression to match 0 to 3 decimal places
-    if (!regex.test(this.value)) {
-      this.invalidInput = true;
-      this.value = null;
-    } else {
-      this.invalidInput = false;
-      this.value = parseFloat(this.value.replace(".", ",")); // replace decimal point with comma
-    }
-  },
-
+    this.bodyWeight = parseFloat(this.bodyWeight.toFixed(3));
+    this.giWeight = parseFloat(this.giWeight.toFixed(3));
+    this.beltWeight = parseFloat(this.beltWeight.toFixed(3));
+    this.invalidInput = false;
+  }
   }
 
 }
