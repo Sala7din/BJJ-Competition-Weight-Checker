@@ -45,7 +45,7 @@
     </template>
     <template #heading>GI Weight</template>
     <div>
-      <input type="number" id="giWeight" v-model.number="giWeight" @input="onInput" placeholder="Enter Gi Weight"><label for="giWeight" min="0"> kg</label>
+      <input type="number" id="giWeight" v-model.number="giWeight" @input="onInput" placeholder="Enter Gi Weight" min="0"><label for="giWeight"> kg</label>
       <p v-if="invalidInput" style="color: red;">Please enter a valid weight in kilograms.</p>
   </div>
   </WelcomeItem>
@@ -69,6 +69,7 @@
     <button @click="checkWeight">Check Weight</button>
     <p v-if="result" v-html="result"></p>
   </WelcomeItem>
+  <!--TODO: Add reset button-->
 </template>
 
 <script>
@@ -196,6 +197,11 @@ export default {
     this.giWeight = parseFloat(this.giWeight.toFixed(3));
     this.beltWeight = parseFloat(this.beltWeight.toFixed(3));
     this.invalidInput = false;
+    if (this.bodyWeight < 0 || this.giWeight < 0 || this.beltWeight < 0) {
+      this.invalidInput = true;
+    } else {
+      this.invalidInput = false;
+    }
   }
   }
 
