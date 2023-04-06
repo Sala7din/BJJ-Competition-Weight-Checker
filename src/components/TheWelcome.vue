@@ -5,25 +5,26 @@
     </template>
     <template #heading>IBJJF Gi Weight Class</template>
     <div>
-      <input type="radio" id="kg" value="kg" v-model="selectedWeight">
+      <input type="radio" id="kg" value="kg" v-model="selectedWeightUnit">
       <label for="kg">kg</label>
-      <input type="radio" id="lbs" value="lbs" v-model="selectedWeight">
+      <input type="radio" id="lbs" value="lbs" v-model="selectedWeightUnit">
       <label for="lbs">lbs</label>
       <br>
     </div>
-    <!--TODO: let radio buttons only appear after weight is selected-->
-    <div v-if="selectedWeight === 'kg' || selectedWeight === 'lbs'">
+    <div v-if="selectedWeightUnit === 'kg' || selectedWeightUnit === 'lbs'">
       <input type="radio" id="male" value="male" v-model="selectedGender">
       <label for="male">Male</label>
       <input type="radio" id="female" value="female" v-model="selectedGender">
       <label for="female">Female</label>
       <br>
-      <!--TODO: seperate weight classes further into kg & lbs-->
-      <select v-if="selectedGender === 'male' || selectedGender === 'female'" v-model="selectedWeightClass">
-        <!--TODO: Add funny phrase that is shown to user if "Super heavy" is selected-->
+      <select v-if="selectedGender === 'male' || selectedGender === 'female' " v-model="selectedWeightClass">              
         <option value="" disabled selected>Choose your Weight Class</option>
         <option v-for="weightClass in weightClasses" :key="weightClass.value" :value="weightClass.value">{{ weightClass.name }}</option>
       </select>
+      <!--TODO: Add funny phrase(like "Maybe you should try Sumo") that is shown to user if "Super heavy" is selected-->
+      <p v-if="selectedWeightClass === 'Ultra Heavy (No maximum)' || selectedWeightClass ===  'Super Heavy (No maximum)'">
+      Maybe you should try Sumo!
+      </p>
     </div>
   </WelcomeItem>
 
@@ -66,7 +67,7 @@
     </template>
     <template #heading>Calculate</template>
     <button @click="checkWeight">Check Weight</button>
-    <p v-if="result"> {{result}} </p>
+    <p v-if="result" v-html="result"></p>
   </WelcomeItem>
 </template>
 
@@ -94,21 +95,17 @@ export default {
       return {
         bodyWeight: {
         type: Number,
-        default: 0
       },
       giWeight: {
-        type: Number,
-        default: 0
+        type: Number, 
       },
       beltWeight: {
-        type: Number,
-        default: 0
+        type: Number, 
       },
       selectedWeightClass: {
-        type: Number,
-        default: 0
+        type: Number, 
       },
-      selectedWeight: null,
+      selectedWeightUnit: null,
       selectedGender: null,
       value: null,
       invalidInput: false,
@@ -124,9 +121,8 @@ export default {
         },
     	},
     computed: {
-      // TODO: seperate weight classes further into kg & lbs
     weightClasses() {
-      if (this.selectedGender === 'male' || this.selectedWeight === 'kg') {
+      if (this.selectedGender === 'male' || this.selectedWeightUnit === 'kg') {
         return [
           { name: 'Rooster (57.5kg)', value: 57.5 },
           { name: 'Light Feather (64kg)', value: 64 },
@@ -138,19 +134,7 @@ export default {
           { name: 'Super Heavy (97.5kg)', value: 97.5 },
           { name: 'Ultra Heavy (No maximum)', value: 9999 }
         ]
-      } else if (this.selectedGender === 'male' || this.selectedWeight === 'lbs') {
-          return [
-          { name: 'Rooster (126.5 lbs)', value: 126.5 },
-          { name: 'Light Feather (141 lbs)', value: 141 },
-          { name: 'Feather (154 lbs)', value: 154 },
-          { name: 'Light (167 lbs)', value: 167 },
-          { name: 'Middle (181 lbs)', value: 181 },
-          { name: 'Medium Heavy (195 lbs)', value: 195 },
-          { name: 'Heavy (208 lbs)', value: 208 },
-          { name: 'Super Heavy (221 lbs)', value: 221 },
-          { name: 'Ultra Heavy (Over 221 lbs)', value: 9999 }
-      ]
-      } if (this.selectedGender === 'female' || this.selectedWeight === 'kg') {
+      } else if (this.selectedGender === 'female' || this.selectedWeightUnit === 'kg') {
           return [
           { name: 'Rooster (47.5kg)', value: 47.5 },
           { name: 'Light Feather (52.2kg)', value: 52.2 },
@@ -161,7 +145,19 @@ export default {
           { name: 'Heavy (82.3kg)', value: 82.3 },
           { name: 'Super Heavy (No maximum)', value: 9999 }
         ]
-      } else if (this.selectedGender === 'female' || this.selectedWeight === 'lbs') {
+      } else if (this.selectedGender === 'male' || this.selectedWeightUnit === 'lbs') {
+          return [
+          { name: 'Rooster (126.5 lbs)', value: 126.5 },
+          { name: 'Light Feather (141 lbs)', value: 141 },
+          { name: 'Feather (154 lbs)', value: 154 },
+          { name: 'Light (167 lbs)', value: 167 },
+          { name: 'Middle (181 lbs)', value: 181 },
+          { name: 'Medium Heavy (195 lbs)', value: 195 },
+          { name: 'Heavy (208 lbs)', value: 208 },
+          { name: 'Super Heavy (221 lbs)', value: 221 },
+          { name: 'Ultra Heavy (No maximum)', value: 9999 }
+      ]
+      } else if (this.selectedGender === 'female' || this.selectedWeightUnit === 'lbs') {
           return [
           { name: 'Rooster (107lbs)', value: 107 },
           { name: 'Light Feather (115lbs)', value: 115 },
@@ -179,32 +175,33 @@ export default {
 
   methods: {
   checkWeight() {
-    if (!this.bodyWeight || !this.giWeight || !this.beltWeight || !this.selectedWeightClass) {
+    if (!this.selectedWeightUnit || !this.selectedGender || !this.selectedWeightClass || !this.bodyWeight || !this.giWeight || !this.beltWeight ) {
       this.result = "Please enter all values.";
       return;
     }
 
     const totalWeight = this.bodyWeight + this.giWeight + this.beltWeight;
     if (totalWeight <= this.selectedWeightClass) {
-      const difference = this.selectedWeightClass - totalWeight;
-      // TODO: Update font colors(green&red) for result phrases   
-      this.result = `You are within the weight limit and have ${difference} kg tolerance`;
+      const difference = this.selectedWeightClass - totalWeight;  
+      this.result = `<span style='color:green'>You are within the weight limit and have ${difference} kg.</span>`;
     } else {
       const difference = totalWeight - this.selectedWeightClass;
-      this.result = `You are above the weight limit and need to lose ${difference} kg`;
+      this.result = `<span style='color:red'>You are above the weight limit and need to lose ${difference} kg.</span>`;
     }
   },
-  // FIXME: Only allow 3 decimals and add comma as a decimal separator 
+  // FIXME: Only allow 3 decimals after comma and add comma as a decimal separator 
   onInput() {
-    if (isNaN(this.value) || this.value <= 0) {
+    const regex = /^\d{0,}(\.\d{0,3})?$/; // regular expression to match 0 to 3 decimal places
+    if (!regex.test(this.value)) {
       this.invalidInput = true;
       this.value = null;
     } else {
       this.invalidInput = false;
-      this.value = parseFloat(this.value.toFixed(3));
+      this.value = parseFloat(this.value.replace(".", ",")); // replace decimal point with comma
     }
   },
-},
+
+  }
 
 }
 </script>
