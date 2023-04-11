@@ -1,4 +1,5 @@
 <template>
+  <!--TODO: Rename Components-->
   <WelcomeItem>
     <template #icon>
       <WeightClassIcon />
@@ -197,6 +198,7 @@ export default {
         this.result = `<span style='color:red'>You are above the weight limit and need to lose ${difference}${this.weightUnitLabel}.</span>`;
       }
     },
+    // TODO: Add weight conversion
     onInput() {
       this.bodyWeight = parseFloat(this.bodyWeight.toFixed(3));
       this.giWeight = parseFloat(this.giWeight.toFixed(3));
